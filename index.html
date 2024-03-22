@@ -1,0 +1,32 @@
+<HTML>
+
+<head>
+	<title>Form</title>
+	<script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<BODY>
+	Minuendo: <input type="text" name="x" id="x" /> <br /><br />
+	Sottraendo: <input type="text" name="y" id="y" /> <br /><br />
+	<button id="myButton">Invio</button>
+	<br /><br />
+	<script>
+		$(document).ready(function () {
+			$('#myButton').on('click', submitTheForm);
+		});
+		function submitTheForm() {
+			minuendo = $('#x').val();
+			sottraendo = $('#y').val();
+			$.ajax({
+				url: "/subtraction",
+				data: { x: minuendo, y: sottraendo },
+				type: "POST",
+				cache: false,
+				dataType: "json",
+				success: function (data) { $("body").append($("<span>" + data.result + "</span>")); }
+			});
+		}
+	</script>
+</BODY>
+
+</HTML>

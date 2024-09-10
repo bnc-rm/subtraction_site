@@ -4,13 +4,13 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         script {
-          bat 'docker build -t angelocapone/my-app:v1 .'
+          bat 'docker build -t ellesalvo/my-app:v1 .'
         }
       }
     }
     stage('Push') {
       steps {
-        bat 'docker push angelocapone/my-app:v1'
+        bat 'docker push ellesalvo/my-app:v1'
       }
     }    
   }

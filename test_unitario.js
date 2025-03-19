@@ -2,6 +2,7 @@ function dif(a, b) {
   return a - b;
 }
 
+
 function testDif() {
   const result = dif(3, 2);
   const expected = 1;
